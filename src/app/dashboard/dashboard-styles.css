@@ -1,0 +1,218 @@
+/* src/app/dashboard/dashboard-styles.css */
+
+/* General page container styling */
+.dashboard-page-container {
+  background: linear-gradient(to bottom right, #e0f2fe, #e9f0f9); /* Soft blue gradient background */
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', sans-serif; /* Ensure consistent font */
+}
+
+/* Main content wrapper card */
+.dashboard-main-card {
+  background-color: #ffffff;
+  border-radius: 16px; /* More rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Deeper, softer shadow */
+  padding: 2.5rem; /* Increased padding */
+  width: 100%;
+  max-width: 1000px; /* Wider content area */
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0; /* Subtle border */
+  transition: transform 0.3s ease-in-out; /* Smooth scale on hover (if applied to entire card) */
+}
+
+.dashboard-main-card:hover {
+  /* transform: translateY(-5px); Example hover effect */
+}
+
+/* Section headings */
+.dashboard-section-heading {
+  color: #2c3e50; /* Darker, more professional heading color */
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e0e0e0; /* Solid bottom border for headings */
+  font-weight: 700; /* Bold */
+  letter-spacing: -0.025em; /* Slightly tighter letter spacing */
+}
+
+/* Custom button styles (example for primary actions) */
+.dashboard-button-primary {
+  background: linear-gradient(to right, #3b82f6, #2563eb); /* Blue gradient */
+  color: white;
+  font-weight: bold;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px; /* Rounded buttons */
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); /* Blue shadow */
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.dashboard-button-primary:hover {
+  background: linear-gradient(to right, #2563eb, #1e40af); /* Darker gradient on hover */
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px); /* Slight lift */
+}
+
+/* Custom button styles (example for warning/secondary actions) */
+.dashboard-button-warning {
+  background: linear-gradient(to right, #f59e0b, #d97706); /* Yellow/orange gradient */
+  color: white;
+  font-weight: bold;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.dashboard-button-warning:hover {
+  background: linear-gradient(to right, #d97706, #b45309);
+  box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Logout button specific style */
+.dashboard-button-logout {
+  background-color: #ef4444; /* Red */
+  color: white;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(239, 68, 68, 0.2);
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.dashboard-button-logout:hover {
+  background-color: #dc2626; /* Darker red */
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Appointment list item styling */
+.appointment-list-item {
+  background-color: #f8fafc; /* Lighter background for list items */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Soft shadow for items */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Space between details */
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #f0f0f0;
+}
+
+.appointment-list-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive adjustments for calendar */
+@media (max-width: 768px) {
+.react-calendar {
+  margin: 20px auto;
+}
+}
+
+/* Overrides for react-calendar to blend with the new design */
+.react-calendar {
+border-radius: 16px !important;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+font-family: 'Inter', sans-serif !important;
+}
+
+.react-calendar__tile {
+border-radius: 10px !important;
+/* Ensure background is reset before applying custom classes */
+background: none !important; 
+}
+
+/* Ensure the date numbers are always visible by default */
+.react-calendar__tile abbr {
+color: #333 !important; /* Default dark color for date numbers */
+font-weight: 500;
+}
+
+/* New custom classes for calendar tile colors */
+.has-my-appointment {
+  background-color: #3b82f6 !important; /* Blue for user's appointments */
+}
+/* Ensure the date text is white inside blue tiles */
+.has-my-appointment abbr {
+  color: white !important; 
+}
+
+.no-my-appointment-future {
+  background-color: #10b981 !important; /* Green for available future dates */
+}
+/* Ensure the date text is white inside green tiles */
+.no-my-appointment-future abbr {
+  color: white !important;
+}
+
+.no-my-appointment-past {
+  background-color: #e5e7eb !important; /* Light gray for past dates with no user appointment */
+}
+/* Ensure the date text is dark gray inside light gray tiles */
+.no-my-appointment-past abbr {
+  color: #6b7280 !important; 
+}
+
+/* NEW: Red for dates taken by other users (only if not your own appointment) */
+.date-taken-by-other {
+  background-color: #ef4444 !important; /* Red */
+}
+.date-taken-by-other abbr {
+  color: white !important; /* White text for contrast */
+}
+
+/* Ensure the selected date (react-calendar__tile--active) still gets its border */
+.react-calendar__tile--active {
+  border: 2px solid #2563eb !important; /* Darker blue border for active selection */
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1); /* Subtle inner shadow for active tile */
+}
+
+/* Ensure today's tile (react-calendar__tile--now) still gets its border */
+.react-calendar__tile--now {
+  border: 2px solid #f59e0b !important; /* Orange border for today */
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1); /* Subtle inner shadow for today's tile */
+}
+
+/* These rules help ensure the primary color applies first,
+ then active/now borders are added on top, without conflicting */
+.react-calendar__tile--active.has-my-appointment,
+.react-calendar__tile--active.no-my-appointment-future,
+.react-calendar__tile--active.no-my-appointment-past,
+.react-calendar__tile--active.date-taken-by-other { /* Added new class here */
+  /* No additional styles needed here, as primary background and text colors are set,
+     and the .react-calendar__tile--active handles the border. */
+}
+
+.react-calendar__tile--now.has-my-appointment,
+.react-calendar__tile--now.no-my-appointment-future,
+.react-calendar__tile--now.no-my-appointment-past,
+.react-calendar__tile--now.date-taken-by-other { /* Added new class here */
+  /* No additional styles needed here, as primary background and text colors are set,
+     and the .react-calendar__tile--now handles the border. */
+}
+
+
+/* Ensure padding is sufficient on mobile for buttons */
+@media (max-width: 640px) {
+.dashboard-button-primary,
+.dashboard-button-warning {
+  width: 100%; /* Full width buttons on small screens */
+}
+.dashboard-actions-group {
+  gap: 1rem; /* Better spacing for stacked buttons on small screens */
+}
+.appointment-list-item {
+  padding: 1.25rem;
+}
+}

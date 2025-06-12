@@ -1,0 +1,43 @@
+/* src/app/globals.css */
+
+/*
+  Tailwind CSS directives. These are crucial for Tailwind to work.
+  @tailwind base; imports Tailwind's base styles and Preflight,
+                   which includes CSS resets for consistent browser behavior
+                   and sets html, body to height: 100%.
+  @tailwind components; imports Tailwind's component classes.
+  @tailwind utilities; imports Tailwind's utility classes.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Explicitly setting html and body height to 100% is crucial for
+  min-h-screen (or h-screen) Tailwind classes to work correctly,
+  allowing elements to take up the full viewport height.
+  While Tailwind's Preflight usually handles this,
+  it's good practice to ensure it, especially if Preflight is
+  not fully configured or if other styles interfere.
+*/
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* Add any other global body styles here, e.g., font-family if not set by Next.js font optimization */
+}
+
+/*
+  In Next.js, the root application element (often with an ID like '__next'
+  or implicitly within the root layout) also needs to expand to full height
+  to allow its children to use height units relative to the viewport.
+*/
+#__next { /* This ID is common for the root app div in Next.js projects */
+  height: 100%;
+}
+
+/* You can add any other custom global styles below this point */
+
+/* Example: Basic font for your application if you're not using Next.js's font optimization */
+/* html, body { font-family: 'Inter', sans-serif; } */
